@@ -9,6 +9,9 @@ export const loadCars = async () => {
   appendCars(cars);
 };
 
+/*
+  Return a *new* promise with a resolve callback.
+*/
 const fetchPromise = () => {
   const promiseRequest = new Promise(async (resolve) => {
     try {

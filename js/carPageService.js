@@ -7,8 +7,9 @@ export const loadCarPage = async (carId) => {
 };
 
 export const preCacheDetailsPage = async (car) => {
+  const CACHE_NAME = "carDealsCachePagesV1";
   const carDetailsUrl = `${API_URL_CAR}${car.value.details_id}`;
-  const cache = await window.caches.open("carDealsCachePagesV1");
+  const cache = await window.caches.open(CACHE_NAME);
   const response = await cache.match(carDetailsUrl);
   if (!response) cache.add(new Request(carDetailsUrl));
 };

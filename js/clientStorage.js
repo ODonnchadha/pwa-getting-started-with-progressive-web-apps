@@ -8,10 +8,11 @@ export const addCars = async (newCars) => {
 };
 
 export const getCars = async () => {
+  const COUNT = 3;
   const keys = (await carsInstance.keys()).reverse();
   if (lastIndex >= keys.length) return;
-  const results = await carsInstance.getItems(keys.splice(lastIndex + 1, 3));
-  lastIndex += 3;
+  const results = await carsInstance.getItems(keys.splice(lastIndex + 1, COUNT));
+  lastIndex += COUNT;
   return Object.values(results).reverse();
 };
 
